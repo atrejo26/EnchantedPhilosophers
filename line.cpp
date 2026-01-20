@@ -1,5 +1,10 @@
 #include "line.h"
+
 #include <cmath>
+#include <iostream>
+
+using namespace std;
+
 
 line::line(Point p1, Point p2)
 : point1(p1.getX(),p1.getY()), point2(p2.getX(),p2.getY())

@@ -72,20 +72,14 @@ TEST_CASE("Test 6")
 
 	l.extendLine(5.0);
 
-	cout << l.printPoints() << endl;
-
-	REQUIRE(l.printPoints() ==  "Line- Point 1: [X: X: -3.0, Y: -4.0], Point 2: [X: X: 6.0, Y: 8.0], Length: 15.");
+	REQUIRE(l.printPoints() ==  "Line- Point 1: [X: X: -3.0, Y: -4.0], Point 2: [X: X: 6.0, Y: 8.0], Length: 15.0");
 }
 
 
 TEST_CASE("TEST 7"){
 	Point p1(1.656, 1.4);
 
-	cout << p1.printString() << endl;
-
 	p1.setX(p1.round1Place(p1.getX()));
-
-	cout << p1.printString() << endl;
 
 	REQUIRE(p1.getX() == 1.7);
 
@@ -94,11 +88,7 @@ TEST_CASE("TEST 7"){
 TEST_CASE("TEST 8"){
 	Point p1(-1.656, 1.4);
 
-	cout << p1.printString() << endl;
-
 	p1.setX(p1.round1Place(p1.getX()));
-
-	cout << p1.printString() << endl;
 
 	REQUIRE(p1.getX() == -1.7);
 
@@ -112,8 +102,12 @@ TEST_CASE("TEST 9"){
 
 	p1.setX(p1.round1Place(p1.getX()));
 
-	cout << p1.printString() << endl;
-
 	REQUIRE(p1.getX() == -1.7);
 
+}
+
+TEST_CASE("Test 10"){
+	Point p1(-10.656, 1.4);
+
+	REQUIRE(p1.purifyStrOutput(p1.round1Place(p1.getX())) == "-10.7");
 }
