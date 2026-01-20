@@ -24,5 +24,33 @@ double Point::getY(){
 }
 
 string Point::printString(){
-    return ("X: " + to_string(X).substr(0, 3) + ", Y: " + to_string(Y).substr(0, 3));
+    return ("X: " + purifyStrOutput(round1Place(X)) + ", Y: " + purifyStrOutput(round1Place(Y)));
+}
+
+double Point::round1Place(double val){
+    val *= 10;
+
+    if(val > 0){
+        val += .5;
+    }else if(val == 0){
+        return 0;
+    }else{
+        val -= .5;
+    }
+
+    int valRound = (int) val;
+
+    double retVal = (double) valRound / 10;
+
+    return retVal;
+}
+
+string Point::purifyStrOutput(double val){
+    if(val == 0){
+        return "0.0";
+    }else if(val > 0){
+        return to_string(val).substr(0, 3);
+    }else{
+        return to_string(val).substr(0, 4);
+    }
 }

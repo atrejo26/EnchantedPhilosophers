@@ -17,6 +17,11 @@ class Point
 
         string printString();
 
+        double round1Place(double val);
+
+        string purifyStrOutput(double val);
+
+        
     private:
         double X;
         double Y;
