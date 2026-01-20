@@ -8,7 +8,7 @@ public:
     double slope();
 
     string midpoint();
-    double extendLine(double distanceExtend);
+    void extendLine(double distanceExtend);
 
     bool isOnLine(Point p3);
 

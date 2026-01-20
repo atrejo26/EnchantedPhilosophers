@@ -63,15 +63,19 @@ TEST_CASE("Test 5")
 
 	REQUIRE(l.isOnLine(p3) == true);
 }
-// TEST_CASE("Test 6")
-// {
-// 	Point p1(0.0, 0.0);
-// 	Point p2(3.0, 4.0);
+TEST_CASE("Test 6")
+{
+	Point p1(0.0, 0.0);
+	Point p2(3.0, 4.0);
 
-// 	line l(p1, p2);
+	line l(p1, p2);
 
-// 	REQUIRE();
-// }
+	l.extendLine(5.0);
+
+	cout << l.printPoints() << endl;
+
+	REQUIRE(l.printPoints() ==  "Line- Point 1: [X: X: -3.0, Y: -4.0], Point 2: [X: X: 6.0, Y: 8.0], Length: 15.");
+}
 
 
 TEST_CASE("TEST 7"){
@@ -88,6 +92,20 @@ TEST_CASE("TEST 7"){
 }
 
 TEST_CASE("TEST 8"){
+	Point p1(-1.656, 1.4);
+
+	cout << p1.printString() << endl;
+
+	p1.setX(p1.round1Place(p1.getX()));
+
+	cout << p1.printString() << endl;
+
+	REQUIRE(p1.getX() == -1.7);
+
+}
+
+
+TEST_CASE("TEST 9"){
 	Point p1(-1.656, 1.4);
 
 	cout << p1.printString() << endl;

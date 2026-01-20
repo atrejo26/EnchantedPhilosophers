@@ -41,14 +41,24 @@ string line::midpoint(){
     return midpoint.printString();
 
 }
-double line::extendLine(double distanceExtend){
-    double x = 0;
-    x = point2.getX() - point1.getX();
-    x = (distanceExtend * x) / length();
+void line::extendLine(double distanceExtend){
 
+    double x = 0;
     double y = 0;
-    y = point2.getY() - point1.getY();
-    y = (distanceExtend * y) / length();
+    if(point1.getX() == point2.getX() && point1.getY() == point1.getX()){
+        x = distanceExtend;
+        y = 0;
+    }else{
+        
+        x = point2.getX() - point1.getX();
+        x = (distanceExtend * x) / length();
+
+        y = point2.getY() - point1.getY();
+        y = (distanceExtend * y) / length();
+    }
+
+
+    
 
     //adjust y 
     //doesn't work for same points
@@ -69,6 +79,8 @@ double line::extendLine(double distanceExtend){
         point1.setX(point1.getX() - x);
         point2.setX(point2.getX() + x);
     }
+
+
 
 
 }
@@ -102,6 +114,9 @@ bool line::isOnLine(Point p3){
 
 
 }
+//Line- Point 1: [X: 1.2, Y: 3.4], Point 2: [X: 5.6, Y: 7.8], Length: 6.2
 string line::printPoints(){
-    
+    string tempStr = "Line- Point 1: [X: " + point1.printString() 
+    + "], Point 2: [X: " + point2.printString() + "], Length: " + point1.purifyStrOutput(point1.round1Place(length()));
+    return tempStr;
 }
